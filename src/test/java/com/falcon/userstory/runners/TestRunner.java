@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                 "json:target/userstory-report.json"
         },
         glue = {"com/falcon/userstory/steps"},
-        features = "src/test/java/com/falcon/userstory/features/smoke/Demo.feature",
+        features = "src/test/java/com/falcon/userstory/smoke/Demo.feature",
         tags = {"@uat", "@id_3"}
 )
 
