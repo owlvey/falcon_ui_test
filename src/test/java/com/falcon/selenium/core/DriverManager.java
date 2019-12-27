@@ -102,7 +102,7 @@ public class DriverManager {
                         if(isMac()) {
                             System.setProperty("webdriver.safari.noinstall", "true");
                             driver = new SafariDriver();
-                            //driver.get(Resources.getProperty("general","URL_JOY_ENV"));
+                            //driver.get(Resources.getProperty("general","URL_ENV"));
                             driver.get(getEnvironment());
 
                         }
@@ -116,7 +116,7 @@ public class DriverManager {
                         capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
                         capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
                         driver = new FirefoxDriver(capabilities);
-                        //driver.get(Resources.getProperty("general", "URL_JOY_ENV"));
+                        //driver.get(Resources.getProperty("general", "URL_ENV"));
                         driver.get(getEnvironment());
                         Thread.sleep(2000);
                         break;
