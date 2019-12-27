@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         },
         glue = {"com/falcon/userstory/steps"},
         features = "src/test/java/com/falcon/userstory/smoke/Demo.feature",
-        tags = {"@uat", "@id_3"}
+        tags = {}
 )
 
 public class TestRunner {

@@ -134,9 +134,7 @@ public class DriverManager {
                         driver = new ChromeDriver(options);
                         String s=getEnvironment();
                         System.out.println("getEnvironment:"+s);
-                        driver.get(s);
-                        //driver.get(Resources.getProperty("general", "URL_JOY_ENV"));
-
+                        driver.get("http://www.google.com");
                         Thread.sleep(2000);
                         break;
                     default:
