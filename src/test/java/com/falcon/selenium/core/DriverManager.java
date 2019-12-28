@@ -119,9 +119,7 @@ public class DriverManager {
                         driver.get(getEnvironment());
                         Thread.sleep(2000);
                         break;
-                    case "chrome_headless":
                     case "chrome":
-
                         String chromeDriver = System.getenv("CHROMEWEBDRIVER");
                         if (chromeDriver == null){
                             System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver.exe");
