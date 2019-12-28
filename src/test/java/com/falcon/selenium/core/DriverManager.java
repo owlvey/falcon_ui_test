@@ -67,7 +67,6 @@ public class DriverManager {
     public static WebDriver GetDriver() throws MalformedURLException,InterruptedException {
         WebDriver driver = DriverManager.DriverInstance.get();
 
-
         if(driver != null)
             return driver;
 
@@ -122,10 +121,11 @@ public class DriverManager {
                         break;
                     case "chrome_headless":
                     case "chrome":
-                        if(isMac())
-                            System.setProperty("webdriver.chrome.driver", System.getenv("CHROME_DRIVER"));
-                        else
+
+                        String chromeDriver = System.getenv("CHROMEWEBDRIVER");
+                        if (chromeDriver == null){
                             System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver.exe");
+                        }
 
                         ChromeOptions options = new ChromeOptions();
                         if(browser.equals("chrome_headless")) {
