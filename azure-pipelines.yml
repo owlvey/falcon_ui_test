@@ -6,17 +6,38 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'windows-2019'
+resources:
+- repo: self
 
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Build
+    displayName: Build    
+    pool:
+      vmImage: 'windows-2019'
+    steps:
+
+    - pwsh: |
+        echo $env:CHROMEWEBDRIVER
+      displayName: Display Information
+
+    - pwsh: |
+        echo "##vso[task.prependpath]$env:CHROMEWEBDRIVER"
+      displayName: Adds ChromeWebDriver for Selenium to PATH 
+
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.8'
+        jdkArchitectureOption: 'x64'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        goals: 'package'
+        
