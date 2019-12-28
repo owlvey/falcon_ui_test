@@ -10,6 +10,9 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
+- pwsh: |
+    echo "##vso[task.prependpath]$env:CHROMEWEBDRIVER"
+  displayName: Adds ChromeWebDriver for Selenium to PATH 
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
