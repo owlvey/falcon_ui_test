@@ -14,7 +14,7 @@
         <serenity.cucumber.version>1.1.36</serenity.cucumber.version>
         <info.cukes.version>1.2.5</info.cukes.version>
         <gherkin.version>2.12.2</gherkin.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
     <dependencies>
